@@ -1,16 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Dashboard() {
   const navigate = useNavigate();
+
   const handleNavigate = () => {
-    navigate("/dashboard");
+    navigate("/dashboard/12525");
   };
   return (
     <div>
-      <button onClick={handleNavigate}>Navigate to Dashboard</button>
+      <button onClick={handleNavigate}>Navigate to id page</button>
     </div>
   );
 }
 
-export default Home;
+export default Dashboard;
