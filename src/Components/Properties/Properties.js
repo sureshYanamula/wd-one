@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ButtonComponent from "../ReusableComponents/ButtonComponent";
+import Model from "../ReusableComponents/Model";
 
 function Properties() {
   const [details, setDetails] = useState([
@@ -14,6 +16,24 @@ function Properties() {
       title: "quis ut nam facilis et officia qui",
       completed: false,
     },
+    {
+      userId: 1,
+      id: 3,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 4,
+      title: "delectus aut autem",
+      completed: false,
+    },
+    {
+      userId: 1,
+      id: 5,
+      title: "delectus aut autem",
+      completed: false,
+    },
   ]);
 
   const handleItems = () => {
@@ -26,16 +46,27 @@ function Properties() {
     });
     setDetails(data);
   };
+
+  const handleDetails = () => {
+    console.log("handleDetails");
+  };
+
+  // handleItems("suresh","mahesh")
   return (
     <div>
       {details.map((item) => (
-        <div key={item.id}>
-          <h1>{item.id}</h1>
-          <h1>{item.title}</h1>
+        <div key={item.id} style={{ display: "flex" }}>
+          <h1 style={{ marginRight: "30px", marginTop: "20px" }}>{item.id}</h1>
+          <h1 style={{ marginRight: "30px", marginTop: "20px" }}>
+            {item.title}
+          </h1>
+          <div style={{ marginRight: "30px", marginTop: "20px" }}>
+            <ButtonComponent handleItems={handleDetails} name="Delete Button" />
+          </div>
         </div>
       ))}
-      {/* <ReUsableButton></ReUsableButton> */}
-      <button onClick={handleItems}>Click to add Items</button>
+      <ButtonComponent handleItems={handleItems} name="Props Button" />
+      {/* <button onClick={handleItems}>Click to add Items</button> */}
     </div>
   );
 }
