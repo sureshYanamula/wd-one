@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ButtonComponent from "../ReusableComponents/ButtonComponent";
-import Model from "../ReusableComponents/Model";
+import ModelComponent from "../ReusableComponents/ModelComponent";
+import Model from "../ReusableComponents/ModelComponent";
 
 function Properties() {
   const [details, setDetails] = useState([
@@ -47,8 +48,13 @@ function Properties() {
     setDetails(data);
   };
 
-  const handleDetails = () => {
-    console.log("handleDetails");
+  const handleDetails = (id) => {
+    console.log("handleDetails", id);
+    let data = [...details];
+    let filteredData = data.filter((item) => {
+      return item.id !== id;
+    });
+    setDetails(filteredData);
   };
 
   // handleItems("suresh","mahesh")
@@ -61,7 +67,7 @@ function Properties() {
             {item.title}
           </h1>
           <div style={{ marginRight: "30px", marginTop: "20px" }}>
-            <ButtonComponent handleItems={handleDetails} name="Delete Button" />
+            <ModelComponent handleDetails={handleDetails} id={item.id} />
           </div>
         </div>
       ))}
