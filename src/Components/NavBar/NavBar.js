@@ -36,6 +36,11 @@ function NavBar() {
                 <NavLink to="/properties">Properties</NavLink>
               </span>
             </li>
+            <li className="nav-item">
+              <span className="nav-link">
+                <NavLink to="/forms">Forms</NavLink>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
